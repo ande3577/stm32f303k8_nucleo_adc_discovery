@@ -5,3 +5,4 @@ Libraries/CMSIS/Documentation
 .settings
 *.list
 *.map
+/Debug/

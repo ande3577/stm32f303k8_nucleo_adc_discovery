@@ -66,6 +66,9 @@ int main(void)
   RCC_ADCCLKConfig(RCC_ADC12PLLCLK_Div2);
   
   /* Enable ADC1 clock */
+  RCC_AHBPeriphResetCmd(RCC_AHBPeriph_ADC12, ENABLE);
+  RCC_AHBPeriphResetCmd(RCC_AHBPeriph_ADC12, DISABLE);
+
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_ADC12, ENABLE);
       
   /* Setup SysTick Timer for 1 µsec interrupts  */

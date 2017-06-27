@@ -97,6 +97,7 @@ int main(void)
   ADC_SelectCalibrationMode(ADC1, ADC_CalibrationMode_Single);
   ADC_StartCalibration(ADC1);
   
+  /// BUG: hangs here, calibration never completes
   while(ADC_GetCalibrationStatus(ADC1) != RESET );
   calibration_value = ADC_GetCalibrationValue(ADC1);
      
@@ -123,6 +124,7 @@ int main(void)
   /* Enable ADC1 */
   ADC_Cmd(ADC1, ENABLE);
   
+  /// BUG if calibration is skipped, ready flag never gets set
   /* wait for ADRDY */
   while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_RDY));
   
